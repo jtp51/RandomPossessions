@@ -38,7 +38,7 @@
     
     Possession *newPossession = [[self alloc] initWithPossessionName:randomName valueInDollars:randomValue serialNumber:randomSerialNumber];
     
-    return newPossession;
+    return [newPossession autorelease];
 }
 
 - (id)initWithPossessionName:(NSString *)name valueInDollars:(int)value serialNumber:(NSString *)sNumber
@@ -97,11 +97,10 @@
 
 - (NSString *)description
 {
-    NSString *descriptionString = [[NSString alloc] initWithFormat:@"%@ (%@): Worth $%d, recorded on %@",
-                                   possessionName,
-                                   serialNumber,
-                                   valueInDollars,
-                                   dateCreated];
-    return descriptionString;
+    return [NSString stringWithFormat:@"%@ (%@): Worth $%d, recorded on %@",
+            possessionName,
+            serialNumber,
+            valueInDollars,
+            dateCreated];
 }
 @end
