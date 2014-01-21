@@ -55,6 +55,17 @@
     return self;
 }
 
+- (id)initWithPossessionName:(NSString *)name
+{
+    self = [super init];
+    
+    if(self)
+    {
+        [self setPossessionName:name];
+    }
+    return self;
+}
+
 - (id) init
 {
     return [self initWithPossessionName:@"Posession" valueInDollars:0 serialNumber:@""];
@@ -62,6 +73,8 @@
 
 -(void)setPossessionName:(NSString *) str
 {
+    [str retain];
+    [possessionName release];
     possessionName = str;
 }
 
@@ -102,5 +115,13 @@
             serialNumber,
             valueInDollars,
             dateCreated];
+}
+
+-(void)dealloc
+{
+    [possessionName release];
+    [serialNumber release];
+    [dateCreated release];
+    [super dealloc];
 }
 @end

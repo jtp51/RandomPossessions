@@ -18,20 +18,15 @@
 
 + (id)randomPossession;
 
--(void)setPossessionName:(NSString *) str;
--(NSString *)possessionName;
-
--(void)setSerialNumber:(NSString *) str;
--(NSString *)serialNumber;
-
--(void)setValueInDollars:(int) i;
--(int)valueInDollars;
-
--(NSDate *)dateCreated;
-
-
 -(id) initWithPossessionName:(NSString *)name
               valueInDollars:(int)value
                 serialNumber:(NSString *)sNumber;
+
+-(id) initWithPossessionName:(NSString *)name;
+
+@property NSString *possessionName;
+@property NSString *serialNumber;
+@property int valueInDollars;
+@property NSDate *dateCreated;
 
 @end
